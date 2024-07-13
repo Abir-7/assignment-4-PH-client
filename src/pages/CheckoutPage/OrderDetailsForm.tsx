@@ -21,11 +21,10 @@ const OrderDetailsForm = ({
   } = useForm();
   const [createOrder] = useCreateOrderMutation();
   const onSubmit = async (data: FieldValues) => {
-    console.log(data);
     const data2 = {
       ...data,
-      quantity: parseInt(data.quantity),
-      totalPrice: parseFloat(data.totalPrice),
+      quantity: parseInt(data?.quantity),
+      totalPrice: parseFloat(data?.totalPrice),
       products,
       orderMethods: "COD",
     };
@@ -34,8 +33,8 @@ const OrderDetailsForm = ({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const res: any = await createOrder(data2);
 
-    if (res.error.data.message) {
-      toast.error(res.error.data.message);
+    if (res?.error?.data?.message) {
+      toast.error(res?.error?.data?.message);
     }
 
     console.log(res);
