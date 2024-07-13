@@ -16,7 +16,9 @@ const AllOrderPage = () => {
   return (
     <div>
       {isLoading ? (
-        <div>Loading</div>
+        <div className="h-[80vh] text-2xl flex items-center justify-center text-green-600">
+          Loading...
+        </div>
       ) : (
         <>
           <Table>

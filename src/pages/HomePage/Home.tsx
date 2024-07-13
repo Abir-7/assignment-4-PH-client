@@ -41,12 +41,21 @@ const Home = () => {
     <div>
       <CarouselMain></CarouselMain>
 
-      <ShopByCategory
-        actionText="home"
-        products={dataState.data}
-      ></ShopByCategory>
-      <PopulerItem products={dataState.data}></PopulerItem>
-      <ImageGallery photos={photos}></ImageGallery>
+      {dataState.isLoading ? (
+        <div className="h-[80vh] text-2xl flex items-center justify-center text-green-600">
+          Loading...
+        </div>
+      ) : (
+        <>
+          {" "}
+          <ShopByCategory
+            actionText="home"
+            products={dataState.data}
+          ></ShopByCategory>
+          <PopulerItem products={dataState.data}></PopulerItem>
+          <ImageGallery photos={photos}></ImageGallery>
+        </>
+      )}
     </div>
   );
 };

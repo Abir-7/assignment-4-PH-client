@@ -25,22 +25,28 @@ const ProductPage = () => {
       <div className="my-4">
         <SearchFilter></SearchFilter>
       </div>
-      <div className="flex flex-col justify-between min-h-[80vh] ">
-        <div className="flex justify-center">
-          <div className=" gap-5 mb-10  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5  ">
-            {currentData?.map((product, i) => {
-              return <ItemCard key={i} product={product}></ItemCard>;
-            })}
+      {products.isLoading ? (
+        <div className="h-[80vh] text-2xl flex items-center justify-center text-green-600">
+          Loading...
+        </div>
+      ) : (
+        <div className="flex flex-col justify-between min-h-[80vh] ">
+          <div className="flex justify-center">
+            <div className=" gap-5 mb-10  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5  ">
+              {currentData?.map((product, i) => {
+                return <ItemCard key={i} product={product}></ItemCard>;
+              })}
+            </div>
+          </div>
+          <div className="">
+            <PaginationCustom
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            ></PaginationCustom>
           </div>
         </div>
-        <div className="">
-          <PaginationCustom
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-          ></PaginationCustom>
-        </div>
-      </div>
+      )}
     </div>
   );
 };
