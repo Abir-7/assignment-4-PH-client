@@ -46,7 +46,7 @@ const ShopByCategory = ({
                 <div className="absolute  duration-300  bg-slate-950 opacity-15  hover:opacity-50  top-[50%]  translate-y-[-50%] translate-x-[-50%]   left-[50%]   w-full h-full"></div>
                 <div
                   onClick={() => dispatch(setCategoryFilter(item.category))}
-                  className=" absolute top-[90%]  translate-y-[-90%] translate-x-[-50%] text-nowrap drop-shadow-sm left-[50%] text-white text-xl bg-green-600 flex items-center  px-2 rounded-lg pb-0.5 "
+                  className=" absolute top-[90%]  translate-y-[-90%] translate-x-[-50%] text-nowrap drop-shadow-sm left-[50%] text-white text-xl bg-green-600 hover:text-green-600 hover:bg-white duration-300 flex items-center  px-2 rounded-lg pb-0.5 "
                 >
                   {" "}
                   <Link to={`/products?category=${item.category as string}`}>
