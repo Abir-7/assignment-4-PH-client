@@ -21,6 +21,7 @@ const ProductDetailsPage = () => {
     const { title, price, availability } = item;
     dispatch(
       addItemToCart({
+        id: id as string,
         title,
         price,
         quantity: availability.quantity,
@@ -97,7 +98,7 @@ const ProductDetailsPage = () => {
         </div>
         <Button
           onClick={() => addProductTocart(data?.data)}
-          className=" mt-5 w-full"
+          className=" mt-5 w-full bg-green-600 hover:bg-green-700"
         >
           Add Cart
         </Button>
